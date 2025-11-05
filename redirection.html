@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Redirect to Redsys</title>
+</head>
+<body>
+    <!-- Formulario para Redsys con id para referenciarlo desde JavaScript -->
+    <form id="redsys-form" action="https://sis-t.redsys.es:25443/sis/realizarPago" method="POST">
+        <input type="hidden" name="Ds_SignatureVersion" value="HMAC_SHA256_V1" />
+        <input type="hidden" name="Ds_MerchantParameters"
+            value="<YOUR_Ds_MerchantParameters>" />
+        <input type="hidden" name="Ds_Signature"
+            value="<YOUR_Ds_Signature>" />
+    </form>
+
+    <script>
+        // Espera a que el DOM esté cargado antes de hacer el submit
+        window.onload = function() {
+            document.getElementById('redsys-form').submit();
+        }
+    </script>
+</body>
+</html>
